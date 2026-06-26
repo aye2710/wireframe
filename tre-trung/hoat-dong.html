@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Trung | Hoạt động · Năng động</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #fff;
+      --surface: #fff;
+      --text: #0f172a;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --gradient-1: linear-gradient(135deg, #2563eb, #0ea5e9);
+      --gradient-2: linear-gradient(135deg, #8b5cf6, #2563eb);
+      --accent: #2563eb;
+      --accent-light: #eef2ff;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.85); backdrop-filter: blur(12px);
+    }
+    header .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-size: 22px; font-weight: 800; color: var(--text); text-decoration: none; }
+    .logo span { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    nav { display: flex; align-items: center; gap: 24px; }
+    nav a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; position: relative; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--accent); font-weight: 600; }
+    nav a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--gradient-1); border-radius: 2px; }
+
+    section { padding: 100px 0; }
+
+    .page-banner {
+      padding: 160px 0 80px;
+      background: var(--gradient-1); color: #fff;
+      position: relative; overflow: hidden;
+    }
+    .page-banner::before {
+      content: ''; position: absolute; top: -30%; right: -10%;
+      width: 600px; height: 600px; background: rgba(255,255,255,0.08);
+      border-radius: 50%; pointer-events: none;
+    }
+    .page-banner .tag { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 8px; }
+    .page-banner h1 {
+      font-size: 48px; font-weight: 800; line-height: 1.1;
+      letter-spacing: -1.5px; margin: 12px 0 16px; max-width: 700px;
+    }
+    .page-banner p { font-size: 17px; color: rgba(255,255,255,0.75); max-width: 600px; line-height: 1.6; }
+
+    .event-item {
+      display: grid; grid-template-columns: 5fr 7fr; gap: 48px;
+      padding: 48px 0; border-bottom: 1px solid var(--border); align-items: center;
+    }
+    .event-item:first-child { padding-top: 0; }
+    .event-item:last-child { border-bottom: none; }
+    .event-cover {
+      aspect-ratio: 4/3; border-radius: 20px; overflow: hidden;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; min-height: 240px;
+    }
+    .event-cover span { color: var(--accent); font-size: 13px; font-weight: 500; }
+    .event-badge {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--gradient-1); color: #fff; font-size: 10px;
+      padding: 5px 14px; border-radius: 100px; letter-spacing: 1.5px;
+      text-transform: uppercase; font-weight: 700;
+    }
+    .event-num { font-size: 40px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 4px; }
+    .event-item h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
+    .event-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+    .event-meta-item {
+      font-size: 12px; display: flex; align-items: center; gap: 6px;
+      background: #f8fafc; padding: 6px 14px; border-radius: 8px;
+      color: var(--text-secondary); font-weight: 600;
+    }
+    .event-item p { font-size: 15px; color: var(--text-secondary); line-height: 1.8; }
+    .event-thumbs { display: flex; gap: 10px; margin-top: 20px; }
+    .event-thumb {
+      width: 64px; height: 48px; border-radius: 8px;
+      background: var(--accent-light); display: flex; align-items: center;
+      justify-content: center; font-size: 9px; color: var(--accent); font-weight: 500;
+    }
+    .event-gallery-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; color: var(--accent); text-decoration: none;
+      letter-spacing: 1px; text-transform: uppercase; margin-top: 16px; transition: color 0.2s;
+    }
+    .event-gallery-btn:hover { color: #8b5cf6; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--border); }
+    footer .container { display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 13px; color: var(--text-secondary); }
+
+    @media (max-width: 1024px) {
+      .event-item { grid-template-columns: 1fr; gap: 24px; }
+    }
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .page-banner h1 { font-size: 32px; }
+      .event-num { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo"><span>Dr.</span> Trung</a>
+      <nav>
+        <a href="index.html">Giới thiệu</a>
+        <a href="chuyen-mon.html">Chuyên môn</a>
+        <a href="hoat-dong.html" class="active">Hoạt động</a>
+        <a href="kien-thuc.html">Kiến thức</a>
+        <a href="dat-lich.html">Đặt lịch</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-banner">
+    <div class="container">
+      <div class="tag">Hoạt động chuyên ngành</div>
+      <h1>Hội nghị &middot; Diễn đàn &middot; Hội thảo</h1>
+      <p>Bác sĩ Trung thường xuyên tham gia các hội nghị, diễn đàn và chương trình trao đổi chuyên môn nhằm cập nhật kiến thức và chia sẻ kinh nghiệm trong lĩnh vực Điều trị Đau &amp; Gây mê Hồi sức.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div style="margin-bottom:24px;">
+        <h2 style="font-size:36px;font-weight:800;letter-spacing:-1px;">Sự kiện tiêu biểu</h2>
+        <p style="font-size:16px;color:var(--text-secondary);margin-top:8px;">Kết nối chuyên môn và cập nhật những tiến bộ mới trong y khoa.</p>
+      </div>
+
+      <div class="event-item">
+        <div class="event-cover">
+          <span>[ Hình ảnh sự kiện ]</span>
+          <span class="event-badge">Hội nghị</span>
+        </div>
+        <div>
+          <div class="event-num">01</div>
+          <h3>Báo cáo viên VNC 2024 &mdash; Hội nghị Đau toàn quốc</h3>
+          <div class="event-meta">
+            <span class="event-meta-item">&#128197; 2024</span>
+            <span class="event-meta-item">&#128205; Việt Nam</span>
+          </div>
+          <p>Tham gia với tư cách báo cáo viên, chia sẻ kinh nghiệm lâm sàng trong điều trị đau mạn tính bằng sóng cao tần và các phương pháp can thiệp giảm đau không xâm lấn.</p>
+          <div class="event-thumbs">
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+          </div>
+          <a href="#gallery" class="event-gallery-btn">&#128247; Xem hình ảnh sự kiện</a>
+        </div>
+      </div>
+
+      <div class="event-item">
+        <div class="event-cover">
+          <span>[ Hình ảnh sự kiện ]</span>
+          <span class="event-badge">Hội nghị</span>
+        </div>
+        <div>
+          <div class="event-num">02</div>
+          <h3>Báo cáo viên VNC 2025 &mdash; Hội nghị Đau toàn quốc</h3>
+          <div class="event-meta">
+            <span class="event-meta-item">&#128197; 2025</span>
+            <span class="event-meta-item">&#128205; Việt Nam</span>
+          </div>
+          <p>Tiếp tục tham gia với tư cách báo cáo viên, cập nhật các tiến bộ mới trong điều trị đau và chia sẻ ca lâm sàng ứng dụng PRF trong thực hành.</p>
+          <div class="event-thumbs">
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+          </div>
+          <a href="#gallery" class="event-gallery-btn">&#128247; Xem hình ảnh sự kiện</a>
+        </div>
+      </div>
+
+      <div class="event-item">
+        <div class="event-cover">
+          <span>[ Hình ảnh sự kiện ]</span>
+          <span class="event-badge">Hội nghị</span>
+        </div>
+        <div>
+          <div class="event-num">03</div>
+          <h3>Hội nghị Đau Quốc tế &mdash; Thái Lan 2024</h3>
+          <div class="event-meta">
+            <span class="event-meta-item">&#128197; 2024</span>
+            <span class="event-meta-item">&#128205; Thái Lan</span>
+          </div>
+          <p>Tham dự hội nghị quốc tế chuyên ngành Đau tại Thái Lan, trao đổi kinh nghiệm cùng các chuyên gia hàng đầu trong khu vực về các phương pháp điều trị đau mạn tính tiên tiến.</p>
+          <div class="event-thumbs">
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+          </div>
+          <a href="#gallery" class="event-gallery-btn">&#128247; Xem hình ảnh sự kiện</a>
+        </div>
+      </div>
+
+      <div class="event-item">
+        <div class="event-cover">
+          <span>[ Hình ảnh sự kiện ]</span>
+          <span class="event-badge">Diễn đàn</span>
+        </div>
+        <div>
+          <div class="event-num">04</div>
+          <h3>The 4th Evolution of PRF Symposium &mdash; Hà Lan - Pháp</h3>
+          <div class="event-meta">
+            <span class="event-meta-item">&#128197; 11/2025</span>
+            <span class="event-meta-item">&#128205; Hà Lan - Pháp</span>
+          </div>
+          <p>Tham gia khóa đào tạo chuyên sâu về PRF (Pulsed Radiofrequency) đạt chuẩn CME Châu Âu (6.0 CME), cập nhật các kỹ thuật can thiệp tiên tiến nhất trong điều trị đau.</p>
+          <div class="event-thumbs">
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+          </div>
+          <a href="#gallery" class="event-gallery-btn">&#128247; Xem hình ảnh sự kiện</a>
+        </div>
+      </div>
+
+      <div class="event-item">
+        <div class="event-cover">
+          <span>[ Hình ảnh sự kiện ]</span>
+          <span class="event-badge">Hội nghị</span>
+        </div>
+        <div>
+          <div class="event-num">05</div>
+          <h3>Hội nghị Phẫu thuật Thần kinh Việt Nam</h3>
+          <div class="event-meta">
+            <span class="event-meta-item">&#128197; 2024-2025</span>
+            <span class="event-meta-item">&#128205; Việt Nam</span>
+          </div>
+          <p>Tham gia chuỗi hội nghị Phẫu thuật Thần kinh Việt Nam (lần 23, 24 và Hội nghị Trẻ), cập nhật các tiến bộ trong điều trị đau và kết nối với mạng lưới chuyên gia y khoa trong nước.</p>
+          <div class="event-thumbs">
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+          </div>
+          <a href="#gallery" class="event-gallery-btn">&#128247; Xem hình ảnh sự kiện</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Dr. Trung · Pain Management</p>
+      <p>Bệnh viện Bưu Điện · Hà Nội</p>
+    </div>
+  </footer>
+</body>
+</html>

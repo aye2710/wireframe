@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Trung | Chuyên môn · Hiện đại</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #fff;
+      --surface: #fff;
+      --text: #111;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+      --accent: #1976d2;
+      --accent-light: #e8f0fe;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    header .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 10px; font-weight: 400; color: var(--text-secondary); display: block; margin-top: 2px; }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+
+    section { padding: 96px 0; }
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px; font-weight: 600; color: var(--text);
+      letter-spacing: -0.5px; margin-bottom: 12px;
+    }
+    .section-desc {
+      font-size: 16px; color: var(--text-secondary); font-weight: 400;
+      max-width: 600px; margin-bottom: 48px;
+    }
+
+    .page-banner {
+      padding: 160px 0 96px; background: #f9fafb;
+    }
+    .page-banner h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 40px; font-weight: 700; color: var(--text);
+      line-height: 1.1; letter-spacing: -1px; margin-bottom: 16px; max-width: 700px;
+    }
+    .page-banner p {
+      font-size: 16px; color: var(--text-secondary); font-weight: 400;
+      max-width: 600px; line-height: 1.6;
+    }
+
+    .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .pain-card {
+      border: 1px solid var(--border); border-radius: 8px; padding: 32px;
+      transition: border-color 0.2s;
+    }
+    .pain-card:hover { border-color: var(--accent); }
+    .pain-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+    .pain-card h3 { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .pain-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+    .symptom-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .symptom-tag {
+      font-size: 11px; padding: 4px 12px; border-radius: 4px;
+      background: var(--accent-light); color: var(--accent); font-weight: 500;
+    }
+
+    .solutions-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .solution-card {
+      border: 1px solid var(--border); border-radius: 8px; padding: 32px 24px; text-align: center;
+    }
+    .solution-card .icon { font-size: 32px; margin-bottom: 12px; display: block; }
+    .solution-card h4 { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .solution-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+    .cta-banner {
+      background: var(--accent); border-radius: 8px; padding: 56px; color: #fff; text-align: center;
+    }
+    .cta-banner h2 { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 600; margin-bottom: 12px; }
+    .cta-banner p { font-size: 15px; opacity: 0.8; margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--accent); text-decoration: none;
+      font-size: 14px; font-weight: 500; padding: 12px 28px; border-radius: 6px;
+    }
+    .btn-white:hover { opacity: 0.9; }
+
+    footer { background: #f9fafb; border-top: 1px solid var(--border); padding: 40px 0; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 13px; color: var(--text-secondary); }
+
+    @media (max-width: 1024px) {
+      .pain-grid { grid-template-columns: 1fr; }
+      .solutions-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .page-banner h1 { font-size: 28px; }
+      .section-title { font-size: 24px; }
+      .pain-card { padding: 24px; }
+      .solutions-grid { grid-template-columns: 1fr; }
+      .cta-banner { padding: 36px 24px; }
+      .cta-banner h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">Dr. Trung<span class="logo-sub">Pain Management</span></a>
+      <nav>
+        <a href="index.html">Giới thiệu</a>
+        <a href="chuyen-mon.html" class="active">Chuyên môn</a>
+        <a href="hoat-dong.html">Hoạt động</a>
+        <a href="kien-thuc.html">Kiến thức</a>
+        <a href="dat-lich.html">Đặt lịch</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-banner" style="padding-bottom:0;">
+    <div class="container">
+      <h1>Những vấn đề thường gặp về cơ xương khớp &amp; cột sống</h1>
+      <p>Mỗi biểu hiện bất thường của khớp hay cột sống là một tín hiệu từ cơ thể. Thấu hiểu đúng bản chất cơn đau giúp định hướng phương pháp chăm sóc y khoa kịp thời và chính xác.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">Cơn đau không chỉ ảnh hưởng đến khớp, mà còn làm thay đổi cách bạn sống mỗi ngày.</div>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <span class="pain-icon">&#129322;</span>
+          <h3>Đau khớp gối</h3>
+          <p>Những cơn đau âm ỉ tăng lên khi lên xuống cầu thang, xuất hiện tiếng lục khục khi co duỗi, gây cản trở các hoạt động đi lại hàng ngày.</p>
+          <div class="symptom-tags">
+            <span class="symptom-tag">Đau khi vận động</span>
+            <span class="symptom-tag">Cứng khớp sáng</span>
+            <span class="symptom-tag">Tiếng lục khục</span>
+            <span class="symptom-tag">Hạn chế gấp duỗi</span>
+          </div>
+        </div>
+        <div class="pain-card">
+          <span class="pain-icon">&#128064;</span>
+          <h3>Đau vai gáy</h3>
+          <p>Cảm giác đau mỏi ê ẩm vùng cổ vai, đôi khi lan xuống bả vai, gây tê bì cánh tay và hạn chế tầm vận động quay đầu khi làm việc.</p>
+          <div class="symptom-tags">
+            <span class="symptom-tag">Đau cổ vai</span>
+            <span class="symptom-tag">Tê bì tay</span>
+            <span class="symptom-tag">Cứng cổ</span>
+            <span class="symptom-tag">Đau đầu vùng chẩm</span>
+          </div>
+        </div>
+        <div class="pain-card">
+          <span class="pain-icon">&#128131;</span>
+          <h3>Đau cột sống</h3>
+          <p>Đau mỏi thắt lưng sau khi ngồi hoặc đứng lâu, đau nhói khi cúi người hoặc mang vác vật nặng, làm giảm đáng kể hiệu suất lao động.</p>
+          <div class="symptom-tags">
+            <span class="symptom-tag">Đau thắt lưng</span>
+            <span class="symptom-tag">Đau khi cúi</span>
+            <span class="symptom-tag">Tê chân</span>
+            <span class="symptom-tag">Yếu cơ</span>
+          </div>
+        </div>
+        <div class="pain-card">
+          <span class="pain-icon">&#128137;</span>
+          <h3>Thoát vị đĩa đệm</h3>
+          <p>Nhân nhầy đĩa đệm lệch khỏi vị trí chèn ép rễ thần kinh, gây ra các cơn đau buốt lan dọc xuống mông, đùi hoặc chân kèm cảm giác tê râm ran.</p>
+          <div class="symptom-tags">
+            <span class="symptom-tag">Đau lan chân</span>
+            <span class="symptom-tag">Tê râm ran</span>
+            <span class="symptom-tag">Yếu cơ</span>
+            <span class="symptom-tag">Mất cảm giác</span>
+          </div>
+        </div>
+        <div class="pain-card">
+          <span class="pain-icon">&#128170;</span>
+          <h3>Thoái hóa khớp</h3>
+          <p>Sự bào mòn sụn khớp tự nhiên theo thời gian, gây viêm sưng khớp định kỳ, làm mất đi sự trơn tru linh hoạt trong các cử động cơ bản.</p>
+          <div class="symptom-tags">
+            <span class="symptom-tag">Sưng khớp</span>
+            <span class="symptom-tag">Cứng sáng</span>
+            <span class="symptom-tag">Đau khi thời tiết</span>
+            <span class="symptom-tag">Giảm vận động</span>
+          </div>
+        </div>
+        <div class="pain-card">
+          <span class="pain-icon">&#128102;</span>
+          <h3>Hạn chế vận động</h3>
+          <p>Cơ thể giảm dần khả năng linh hoạt vật lý, người bệnh bắt đầu e ngại di chuyển, gây suy giảm cơ bắp và ảnh hưởng gián tiếp đến tinh thần.</p>
+          <div class="symptom-tags">
+            <span class="symptom-tag">Giảm linh hoạt</span>
+            <span class="symptom-tag">Teo cơ</span>
+            <span class="symptom-tag">Suy giảm thể lực</span>
+            <span class="symptom-tag">Ảnh hưởng tinh thần</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f9fafb;">
+    <div class="container">
+      <div class="section-title" style="text-align:center;">Phương pháp điều trị tiên tiến</div>
+      <div class="section-desc" style="text-align:center;margin-left:auto;margin-right:auto;">
+        Bác sĩ Trung áp dụng các phương pháp can thiệp giảm đau không xâm lấn, không phẫu thuật, giúp người bệnh hồi phục nhanh và bền vững.
+      </div>
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <span class="icon">&#9889;</span>
+          <h4>Sóng cao tần RF/PRF</h4>
+          <p>Can thiệp giảm đau mạn tính không phẫu thuật</p>
+        </div>
+        <div class="solution-card">
+          <span class="icon">&#129504;</span>
+          <h4>TMS</h4>
+          <p>Từ trường xuyên sọ trong điều trị đau</p>
+        </div>
+        <div class="solution-card">
+          <span class="icon">&#128488;</span>
+          <h4>Block thần kinh</h4>
+          <p>Dưới hướng dẫn siêu âm chính xác</p>
+        </div>
+        <div class="solution-card">
+          <span class="icon">&#127973;</span>
+          <h4>Phục hồi chức năng</h4>
+          <p>Bài tập trị liệu cá nhân hóa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:96px 0 0;">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Bạn đang gặp những triệu chứng này?</h2>
+        <p>Đừng để cơn đau kéo dài ảnh hưởng đến chất lượng cuộc sống. Đặt lịch khám ngay hôm nay.</p>
+        <a href="dat-lich.html" class="btn-white">&#8594; Đặt lịch khám ngay</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top:96px;">
+    <div class="container">
+      <p>&copy; 2026 Thạc sĩ. Bác sĩ Đàm Quang Trung</p>
+      <p>Bệnh viện Bưu Điện · Hà Nội</p>
+    </div>
+  </footer>
+</body>
+</html>

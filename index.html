@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Trung — Chọn phong cách</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f6f8;
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+    .container { max-width: 1200px; text-align: center; }
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .sub {
+      font-size: 16px;
+      color: #6b7280;
+      font-weight: 400;
+      margin-bottom: 48px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 24px;
+      text-decoration: none;
+      color: inherit;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .card .emoji {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 13px;
+      color: #6b7280;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    .card .badge {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 16px;
+      border-radius: 50px;
+    }
+
+    .card-sang-trong { border-color: #dce8f1; }
+    .card-sang-trong:hover { border-color: #c9a84c; }
+    .card-sang-trong .badge { background: #0b2a4a; color: #fff; }
+
+    .card-hien-dai { border-color: #e5e7eb; }
+    .card-hien-dai:hover { border-color: #1976d2; }
+    .card-hien-dai .badge { background: #1976d2; color: #fff; }
+
+    .card-than-thien { border-color: #e8ddd0; }
+    .card-than-thien:hover { border-color: #168c88; }
+    .card-than-thien .badge { background: #168c88; color: #fff; }
+
+    .card-tre-trung { border-color: #e2e8f0; }
+    .card-tre-trung:hover { border-color: #2563eb; }
+    .card-tre-trung .badge { background: linear-gradient(135deg, #2563eb, #0ea5e9); color: #fff; }
+
+    @media (max-width: 1024px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Thạc sĩ. Bác sĩ Đàm Quang Trung</h1>
+    <p class="sub">Chuyên khoa Điều trị Đau — Chọn phong cách trình bày bạn muốn xem</p>
+    <div class="grid">
+
+      <a href="sang-trong/" class="card card-sang-trong">
+        <div class="emoji">&#127912;</div>
+        <h2>Sang trọng, Cao cấp</h2>
+        <p>Phong cách chuyên nghiệp, lịch lãm với tông màu navy &amp; gold — phù hợp đối tượng trung niên, doanh nhân.</p>
+        <span class="badge">Cổ điển &bull; Sang trọng</span>
+      </a>
+
+      <a href="hien-dai/" class="card card-hien-dai">
+        <div class="emoji">&#128640;</div>
+        <h2>Hiện đại, Tối giản</h2>
+        <p>Thiết kế tối giản, sạch sẽ với tông xanh dương — tập trung vào nội dung, phù hợp người yêu phong cách hiện đại.</p>
+        <span class="badge">Tối giản &bull; Hiện đại</span>
+      </a>
+
+      <a href="than-thien/" class="card card-than-thien">
+        <div class="emoji">&#127801;</div>
+        <h2>Gần gũi, Thân thiện</h2>
+        <p>Phong cách ấm áp với tông màu teal &amp; be, serif font — tạo cảm giác tin tưởng, gần gũi bệnh nhân.</p>
+        <span class="badge">Ấm áp &bull; Thân thiện</span>
+      </a>
+
+      <a href="tre-trung/" class="card card-tre-trung">
+        <div class="emoji">&#9889;</div>
+        <h2>Trẻ trung, Năng động</h2>
+        <p>Thiết kế năng động với gradient xanh lam-tím, góc cạnh hiện đại — thu hút người trẻ và bệnh nhân mới.</p>
+        <span class="badge">Năng động &bull; Trẻ trung</span>
+      </a>
+
+    </div>
+  </div>
+</body>
+</html>

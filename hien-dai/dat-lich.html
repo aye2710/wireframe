@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Trung | Đặt lịch · Hiện đại</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #fff;
+      --surface: #fff;
+      --text: #111;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+      --accent: #1976d2;
+      --accent-light: #e8f0fe;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    header .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 10px; font-weight: 400; color: var(--text-secondary); display: block; margin-top: 2px; }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+
+    section { padding: 96px 0; }
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px; font-weight: 600; color: var(--text);
+      letter-spacing: -0.5px; margin-bottom: 12px;
+    }
+
+    .page-banner {
+      padding: 160px 0 96px; background: #f9fafb;
+    }
+    .page-banner h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 40px; font-weight: 700; color: var(--text);
+      line-height: 1.1; letter-spacing: -1px; margin-bottom: 16px; max-width: 700px;
+    }
+    .page-banner p {
+      font-size: 16px; color: var(--text-secondary); font-weight: 400;
+      max-width: 600px; line-height: 1.6;
+    }
+
+    .booking-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: start; }
+    .booking-info { display: flex; flex-direction: column; gap: 24px; }
+    .info-card {
+      border: 1px solid var(--border); border-radius: 8px; padding: 28px;
+      display: flex; gap: 20px;
+    }
+    .info-icon {
+      width: 44px; height: 44px; border-radius: 6px; background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+    }
+    .info-card h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 4px; }
+    .info-card .info-main { font-size: 16px; font-weight: 600; color: var(--text); }
+    .info-card .info-sub { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+
+    .alert-box {
+      background: var(--accent-light); border: 1px solid var(--accent); border-radius: 8px;
+      padding: 24px; display: flex; gap: 16px; align-items: flex-start;
+    }
+    .alert-box strong { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); }
+    .alert-box p { font-size: 14px; color: var(--text); margin-top: 4px; line-height: 1.6; }
+
+    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .faq-item:first-child { padding-top: 0; }
+    .faq-q { font-size: 15px; font-weight: 600; color: var(--text); display: flex; justify-content: space-between; cursor: pointer; }
+    .faq-a { font-size: 14px; color: var(--text-secondary); margin-top: 10px; line-height: 1.6; }
+
+    .booking-sidebar {
+      background: #f9fafb; border: 1px solid var(--border); border-radius: 8px;
+      padding: 36px; position: sticky; top: 100px;
+    }
+    .booking-sidebar h3 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+    .booking-sidebar p { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
+    .btn-primary {
+      display: block; text-align: center; background: var(--accent); color: #fff; text-decoration: none;
+      font-size: 14px; font-weight: 500; padding: 14px 28px; border-radius: 6px; transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-outline {
+      display: block; text-align: center; background: var(--bg); color: var(--text); text-decoration: none;
+      font-size: 14px; font-weight: 500; padding: 14px 28px; border-radius: 6px; border: 1px solid var(--border); margin-top: 12px; transition: border-color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--accent); }
+    .sidebar-note { font-size: 11px; color: var(--text-secondary); text-align: center; margin-top: 16px; }
+
+    footer { background: #f9fafb; border-top: 1px solid var(--border); padding: 40px 0; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 13px; color: var(--text-secondary); }
+
+    @media (max-width: 1024px) {
+      .booking-grid { grid-template-columns: 1fr; gap: 32px; }
+      .booking-sidebar { position: static; }
+    }
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .page-banner h1 { font-size: 28px; }
+      .section-title { font-size: 24px; }
+      .info-card { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">Dr. Trung<span class="logo-sub">Pain Management</span></a>
+      <nav>
+        <a href="index.html">Giới thiệu</a>
+        <a href="chuyen-mon.html">Chuyên môn</a>
+        <a href="hoat-dong.html">Hoạt động</a>
+        <a href="kien-thuc.html">Kiến thức</a>
+        <a href="dat-lich.html" class="active">Đặt lịch</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-banner" style="padding-bottom:0;">
+    <div class="container">
+      <h1>Bắt đầu hành trình điều trị đau đúng cách.</h1>
+      <p>Bác sĩ Trung hiện đang thực hiện lịch khám trực tiếp tại bệnh viện công. Người bệnh có thể đăng ký hẹn giờ chính thức thông qua cổng đăng ký y khoa để được hỗ trợ chu đáo.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="booking-grid">
+
+        <div class="booking-info">
+          <div class="info-card">
+            <div class="info-icon">&#127973;</div>
+            <div>
+              <h4>Đơn vị công tác</h4>
+              <div class="info-main">Bệnh viện Bưu Điện</div>
+              <div class="info-sub">Khoa Gây mê Hồi sức &amp; Điều trị đau</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">&#128205;</div>
+            <div>
+              <h4>Địa điểm khám bệnh</h4>
+              <div class="info-main">Phòng khám chuyên khoa Điều trị Đau</div>
+              <div class="info-sub">Sảnh A, Tòa nhà hành chính trung tâm bệnh viện</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">&#128338;</div>
+            <div>
+              <h4>Lịch khám đề xuất</h4>
+              <div class="info-main">Thứ Hai - Thứ Sáu</div>
+              <div class="info-sub">Sáng 07:30 - Chiều 16:30</div>
+            </div>
+          </div>
+
+          <div class="alert-box">
+            <div style="font-size:22px;flex-shrink:0;">&#9888;&#65039;</div>
+            <div>
+              <strong>Thông báo bắt buộc</strong>
+              <p>Bác sĩ Trung chỉ tiếp nhận khám lâm sàng thông qua hệ thống phân phối lịch hẹn trực tiếp của bệnh viện công tác. <strong>Không tự tiếp nhận đặt lịch khám riêng bên ngoài hệ thống chính thức.</strong></p>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;">Câu hỏi thường gặp</h3>
+            <div class="faq-item">
+              <div class="faq-q">Tôi cần mang theo giấy tờ gì khi đi khám? <span style="color:var(--accent);">+</span></div>
+              <div class="faq-a">Vui lòng mang theo chứng minh thư/thẻ căn cước, bảo hiểm y tế (nếu có), và các kết quả xét nghiệm/chẩn đoán hình ảnh trước đó (nếu có).</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Thời gian chờ khám trung bình là bao lâu? <span style="color:var(--accent);">+</span></div>
+              <div class="faq-a">Với lịch hẹn trước, thời gian chờ trung bình khoảng 15-30 phút. Người bệnh không có lịch hẹn có thể phải chờ theo thứ tự ưu tiên của bệnh viện.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Bác sĩ có khám bảo hiểm y tế không? <span style="color:var(--accent);">+</span></div>
+              <div class="faq-a">Có. Bác sĩ Trung khám theo đúng quy định của bệnh viện công, bao gồm cả bảo hiểm y tế và dịch vụ khám theo yêu cầu.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-sidebar">
+          <h3>Đăng ký khám y khoa</h3>
+          <p>Nhấp vào liên kết dưới đây để chuyển tiếp sang hệ thống xếp hàng y tế trực tuyến của bệnh viện và chọn lịch của Bác sĩ Trung.</p>
+          <a href="#" class="btn-primary">&#8594; Đặt lịch khám tại bệnh viện</a>
+          <a href="#" class="btn-outline">&#8594; Xem lịch khám chi tiết</a>
+          <div class="sidebar-note">Hệ thống đăng ký hoàn toàn tự động. Không thu phí dịch vụ đặt chỗ.</div>
+
+          <div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--border);">
+            <h4 style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:12px;">Thông tin liên hệ</h4>
+            <div style="font-size:14px;color:var(--text);">
+              <p style="margin-bottom:6px;"><strong>Hotline BV:</strong> (024) 1234 5678</p>
+              <p style="margin-bottom:6px;"><strong>Địa chỉ:</strong> 49 Trần Điện, Hai Bà Trưng, Hà Nội</p>
+              <p><strong>Email:</strong> contact@drtrung.vn</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0;">
+    <div class="container">
+      <div style="border-radius:8px;overflow:hidden;aspect-ratio:21/9;background:var(--accent-light);display:flex;align-items:center;justify-content:center;margin-bottom:96px;">
+        <div style="text-align:center;color:var(--accent);">
+          <div style="font-size:40px;margin-bottom:8px;">&#128205;</div>
+          <p style="font-size:14px;">[ Bản đồ Bệnh viện Bưu Điện ]</p>
+          <p style="font-size:12px;opacity:0.7;">49 Trần Điện, Hai Bà Trưng, Hà Nội</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Thạc sĩ. Bác sĩ Đàm Quang Trung</p>
+      <p>Bệnh viện Bưu Điện · Hà Nội</p>
+    </div>
+  </footer>
+</body>
+</html>
