@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Trung | Giới thiệu · Thân thiện</title>
+  <title>Đàm Quang Trung | Giới thiệu · Thân thiện</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
@@ -143,13 +143,103 @@
 
     footer { padding: 40px 0; text-align: center; }
     footer p { font-size: 13px; color: var(--text-secondary); }
+    .header-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent); color: #fff; text-decoration: none;
+      font-size: 13px; font-weight: 600; padding: 10px 22px; border-radius: 50px;
+      transition: background 0.2s;
+    }
+    .header-cta:hover { background: #126e6a; }
+
+    .mobile-menu-btn { display: none; cursor: pointer; background: none; border: none; padding: 8px; }
+    .mobile-menu-btn span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; margin: 4px 0; }
+
+    .hero-slogan {
+      font-size: 16px; font-weight: 700; color: var(--accent);
+      margin-top: 20px; margin-bottom: 12px;
+    }
+    .hero-motto {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-style: italic; color: var(--text-secondary);
+      line-height: 1.6; max-width: 500px; margin-bottom: 32px;
+    }
+
+    .profile-focus-area { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; font-size: 14px; color: var(--text-secondary); }
+    .profile-focus-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 7px; }
+    .profile-working-image {
+      border-radius: 24px; overflow: hidden; aspect-ratio: 16/10;
+      background: linear-gradient(135deg, var(--accent-light), var(--warm));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 14px;
+      box-shadow: 0 4px 24px var(--shadow);
+    }
+
+    .cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .cert-card {
+      background: var(--surface); border-radius: 20px; overflow: hidden;
+      box-shadow: 0 2px 16px var(--shadow); transition: all 0.3s;
+    }
+    .cert-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(61,46,30,0.1); }
+    .cert-img {
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--accent-light), var(--warm));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: var(--accent);
+    }
+    .cert-body { padding: 16px 18px 20px; }
+    .cert-body h4 { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.3; }
+    .cert-body p { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+    .journey-timeline { position: relative; padding: 20px 0; max-width: 900px; margin: 0 auto; }
+    .journey-track {
+      position: absolute; top: 56px; left: 5%; right: 5%; height: 2px;
+      background: var(--warm); pointer-events: none;
+    }
+    .journey-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
+    .journey-step { text-align: center; position: relative; }
+    .journey-dot {
+      width: 36px; height: 36px; border-radius: 50%; border: 2.5px solid var(--accent);
+      background: var(--bg); display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; position: relative; z-index: 2;
+    }
+    .journey-dot-inner { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+    .journey-step-icon { font-size: 28px; margin-bottom: 10px; }
+    .journey-step h4 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--text); margin-bottom: 6px; }
+    .journey-step p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; max-width: 200px; margin: 0 auto; }
+
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); text-align: left; }
+    .footer-brand .logo-name { color: var(--accent); }
+    .footer-brand .logo-sub { color: var(--text-secondary); }
+    .footer-brand p { font-size: 14px; color: var(--text-secondary); margin-top: 16px; max-width: 320px; line-height: 1.7; }
+    footer h4 { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--text); margin-bottom: 16px; }
+    footer nav a { display: block; font-size: 14px; color: var(--text-secondary); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    footer nav a:hover { color: var(--accent); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; font-size: 12px; color: var(--text-secondary); }
+    .footer-disclaimer { font-size: 11px; color: var(--text-secondary); opacity: 0.7; margin-top: 4px; }
+
+    @media (max-width: 1024px) {
+      .cert-grid { grid-template-columns: repeat(2, 1fr); }
+      .journey-steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .mobile-menu-btn { display: flex; flex-direction: column; }
+      .header-cta { display: none; }
+      .hero h1 { font-size: 36px; }
+      .cert-grid { grid-template-columns: 1fr; }
+      .journey-steps { grid-template-columns: 1fr; gap: 32px; }
+      .journey-track { display: none; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <a href="index.html" class="logo">
-        <span class="logo-name">Dr. Trung</span>
+        <span class="logo-name">Đàm Quang Trung</span>
         <span class="logo-sub">Điều trị Đau</span>
       </a>
       <nav>
@@ -159,6 +249,10 @@
         <a href="kien-thuc.html">Kiến thức</a>
         <a href="dat-lich.html">Đặt lịch</a>
       </nav>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="dat-lich.html" class="header-cta">&#128197; Đặt lịch khám</a>
+        <div class="mobile-menu-btn"><span></span><span></span><span></span></div>
+      </div>
     </div>
   </header>
 
@@ -168,6 +262,8 @@
       <div class="hero-badge">Chuyên khoa Điều trị Đau</div>
       <h1>Đồng hành cùng bạn <em>vượt qua</em> cơn đau.</h1>
       <p>Thạc sĩ. Bác sĩ Đàm Quang Trung với hơn 12 năm kinh nghiệm trong lĩnh vực Gây mê Hồi sức và Điều trị Đau.</p>
+      <div class="hero-slogan">&#127942; LẤY LẠI NHỮNG NGÀY KHÔNG CÒN ĐAU</div>
+      <div class="hero-motto"><em>Mỗi bệnh nhân đều xứng đáng có một cuộc sống ít đau hơn, ngủ ngon hơn và vận động dễ dàng hơn.</em></div>
       <a href="dat-lich.html" class="hero-cta">&#128222; Đặt lịch khám</a>
     </div>
   </section>
@@ -190,10 +286,16 @@
           <div class="profile-item-label">Kinh nghiệm</div>
           <div class="profile-item-value">12+ năm trong lĩnh vực lâm sàng và điều trị đau</div>
         </div>
-        <div class="profile-item">
-          <div class="profile-item-label">Ngôn ngữ</div>
-          <div class="profile-item-value">Tiếng Việt · Tiếng Anh</div>
+        <div class="profile-divider"></div>
+        <div><div class="profile-item-label" style="margin-bottom:10px;">Lĩnh vực tập trung</div>
+          <div class="profile-focus-area"><span class="profile-focus-dot"></span>Điều trị đau mạn tính bằng sóng cao tần RF/PRF</div>
+          <div class="profile-focus-area"><span class="profile-focus-dot"></span>TMS (Từ trường xuyên sọ) trong điều trị đau</div>
+          <div class="profile-focus-area"><span class="profile-focus-dot"></span>Block thần kinh &amp; Gây tê vùng dưới hướng dẫn siêu âm</div>
+          <div class="profile-focus-area"><span class="profile-focus-dot"></span>Can thiệp giảm đau không phẫu thuật</div>
         </div>
+      </div>
+      <div class="profile-working-image" style="margin-top:24px;">
+        <span>[ Hình ảnh bác sĩ tại phòng khám ]</span>
       </div>
     </div>
   </section>
@@ -275,6 +377,83 @@
     </div>
   </section>
 
+  <!-- ========== CHỨNG NHẬN CHUYÊN MÔN ========== -->
+  <section>
+    <div class="container">
+      <div class="section-title">Chứng nhận chuyên môn</div>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-img">[ Bằng BS đa khoa ]</div>
+          <div class="cert-body"><h4>Bằng Bác sĩ đa khoa</h4><p>Học viện Quân Y · 2012</p></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-img">[ Bằng Thạc sĩ ]</div>
+          <div class="cert-body"><h4>Bằng Thạc sĩ Nội khoa</h4><p>Đại học Y Hà Nội · 2018</p></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-img">[ CME tiêm khớp ]</div>
+          <div class="cert-body"><h4>CME Kỹ thuật tiêm khớp</h4><p>ĐH Y Dược TPHCM · 2022</p></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-img">[ CME sóng cao tần ]</div>
+          <div class="cert-body"><h4>CME Sóng cao tần cơ bản</h4><p>ĐH Y Dược TPHCM · 2024</p></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-img">[ Gây tê siêu âm ]</div>
+          <div class="cert-body"><h4>Gây tê vùng dưới hướng dẫn siêu âm</h4><p>ĐH Y Dược Hải Phòng · 2024</p></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-img">[ TMS ]</div>
+          <div class="cert-body"><h4>Đào tạo TMS</h4><p>Chứng chỉ chuyên khoa · 2025</p></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-img">[ RF/PRF ]</div>
+          <div class="cert-body"><h4>Đào tạo RF/PRF chuyên sâu</h4><p>Nebraska, Hoa Kỳ · 2025</p></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-img">[ Gây tê Hoa Kỳ ]</div>
+          <div class="cert-body"><h4>Chứng nhận lĩnh vực Gây tê</h4><p>Hoa Kỳ · 2025</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HÀNH TRÌNH THĂM KHÁM ========== -->
+  <section>
+    <div class="container">
+      <div class="section-title">Hành trình thăm khám</div>
+      <div class="journey-timeline">
+        <div class="journey-track"></div>
+        <div class="journey-steps">
+          <div class="journey-step">
+            <div class="journey-dot"><div class="journey-dot-inner"></div></div>
+            <div class="journey-step-icon">&#128197;</div>
+            <h4>Đặt lịch hẹn</h4>
+            <p>Đăng ký lịch khám qua tổng đài hoặc cổng bệnh viện.</p>
+          </div>
+          <div class="journey-step">
+            <div class="journey-dot"><div class="journey-dot-inner"></div></div>
+            <div class="journey-step-icon">&#128137;</div>
+            <h4>Thăm khám</h4>
+            <p>Khám lâm sàng, chỉ định siêu âm hoặc MRI nếu cần.</p>
+          </div>
+          <div class="journey-step">
+            <div class="journey-dot"><div class="journey-dot-inner"></div></div>
+            <div class="journey-step-icon">&#128220;</div>
+            <h4>Tư vấn</h4>
+            <p>Giải thích tình trạng và đề xuất phác đồ cá nhân hóa.</p>
+          </div>
+          <div class="journey-step">
+            <div class="journey-dot"><div class="journey-dot-inner"></div></div>
+            <div class="journey-step-icon">&#127947;</div>
+            <h4>Phục hồi</h4>
+            <p>Hướng dẫn bài tập tại nhà và theo dõi định kỳ.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="container">
       <div class="section-title">Khám phá thêm</div>
@@ -311,7 +490,34 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 Thạc sĩ. Bác sĩ Đàm Quang Trung · Bệnh viện Bưu Điện, Hà Nội</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-name">Đàm Quang Trung</span>
+            <span class="logo-sub">Điều trị Đau</span>
+          </div>
+          <p>Đồng hành cùng người bệnh trong quá trình kiểm soát cơn đau, phục hồi vận động và duy trì chất lượng cuộc sống lâu dài.</p>
+        </div>
+        <div>
+          <h4>Liên kết nhanh</h4>
+          <nav>
+            <a href="index.html">Giới thiệu</a>
+            <a href="chuyen-mon.html">Chuyên môn</a>
+            <a href="hoat-dong.html">Hoạt động</a>
+            <a href="kien-thuc.html">Kiến thức</a>
+            <a href="dat-lich.html">Đặt lịch khám</a>
+          </nav>
+        </div>
+        <div>
+          <h4>Thông tin công tác</h4>
+          <p style="font-size:14px;color:var(--text-secondary);">Đơn vị công tác chính thức:<br><strong style="color:var(--text);">Bệnh viện Bưu Điện</strong></p>
+          <p style="font-size:12px;color:var(--text-secondary);margin-top:12px;opacity:0.7;">* Mọi yêu cầu thăm khám vui lòng thực hiện thông qua cổng thông tin bệnh viện.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Đàm Quang Trung. Bản quyền được bảo lưu.</span>
+        <span class="footer-disclaimer">Medical Disclaimer: Thông tin chỉ mang tính tham khảo.</span>
+      </div>
     </div>
   </footer>
 </body>
